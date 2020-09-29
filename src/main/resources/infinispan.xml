@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<infinispan xmlns="urn:infinispan:config:10.1">
+<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:infinispan:config:9.4 http://www.infinispan.org/schemas/infinispan-config-9.4.xsd"
+   xmlns="urn:infinispan:config:9.4">
+-->
+
+  <jgroups>
+    <stack-file name="jgroups-udp" path="jgroups-app-udp.xml" />
+  </jgroups>
+  <cache-container statistics="true">
+    <jmx enabled="true"/>
+    <transport stack="jgroups-udp" cluster="ClusteredLocks"/>
+    <clustered-locks xmlns="urn:infinispan:config:clustered-locks:10.1">
+      <clustered-lock name="l1" />
+      <clustered-lock name="l2" />
+      <clustered-lock name="l3" />
+    </clustered-locks>
+  </cache-container>
+</infinispan>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- example settings to show how the public Red Hat repository can be used.
+     activate with mvn -s maven-settings.xml ......
+-->
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+
+    <localRepository>./rhdg-8-repository</localRepository>
+
+    <pluginGroups>
+        <pluginGroup>org.jboss.maven.plugins</pluginGroup>
+    </pluginGroups>
+    <profiles>
+
+        <profile>
+            <id>rhdg-ga-repository</id>
+            <repositories>
+                <repository>
+                    <id>redhat-ga</id>
+                    <name>Red Hat GA Repository</name>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+              <pluginRepository>
+                <id>redhat-ga</id>
+                <name>Red Hat GA Repository</name>
+                <url>https://maven.repository.redhat.com/ga/</url>
+              </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>rhdg-ga-repository</activeProfile>
+    </activeProfiles>
+
+</settings>
+
